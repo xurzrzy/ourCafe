@@ -13,7 +13,7 @@
   <header class="header" id="siteHeader">
 
     <a href="index.html" class="logo">
-      <img src="" alt="ourCAFE!" class="logo-img">
+      <img src="assets/ourCafe_logo.png" alt="ourCAFE!" class="logo-img">
     </a>
 
     <!-- NAVBAR MOBILE VIEW: hamburger toggle (script.js). -->
@@ -30,11 +30,186 @@
 
   <main id="mainContent">
 
-    <!-- ---------- PAGE SECTIONS (in order) ----------
-         #hero, #favorites, #about, #feedbacks, #contact -->
-         
-    <section class="main-placeholder">
-      <p>Page sections go here.</p>
+    <!-- ---------- HERO ---------- -->
+    <section class="home-hero" id="hero">
+
+      <img src="assets/hero_bg.png" alt="hero section background" class="section-bg hero-bg">
+
+      <h1 class="home-hero-title">
+        <span class="hero-line-1">Good Coffee.</span>
+        <span class="hero-line-2">Good Vibes.</span>
+      </h1>
+      <p class="home-tagline">Your go-to spot for good coffee, good food, and even better moments.</p>
+      <a href="menu.html" class="book-btn" id="heroCta">Check ourMenu!</a>
+
+    </section>
+
+    <!-- ---------- CROWD FAVORITES ---------- -->
+    <section class="favorites" id="favorites">
+
+      <header class="section-head">
+        <h2 class="section-title">Crowd favorites, tried &amp; loved</h2>
+        <p class="section-sub">Can’t decide? Start with what everyone keeps coming back for.</p>
+      </header>
+
+      <div class="fav-grid">
+
+        <!-- Featured -->
+        <article class="fav-card fav-feature" id="card-pistachio" onmouseover="showFavorite('pistachio')" onmouseout="hideFavorite('pistachio')">
+          <div class="fav-text">
+            <span class="tag tag-dark">Signature drink</span>
+            <h3 class="fav-name">Pistachio Matcha Latte</h3>
+            <p class="fav-desc">Creamy matcha blended with pistachio syrup, milk, and ice for a nutty treat.</p>
+            <span class="price-pill price-dark">less than ₱170</span>
+            <button type="button" class="customize-btn" id="customize-pistachio" onclick="customizeItem('pistachio')">Customize ›</button>
+            <p class="fav-options" id="options-pistachio">Pick your size, sweetness, and add-ons when you order.</p>
+          </div>
+          <img src="assets/matcha_fave.png" alt="Pistachio Matcha Latte" class="fav-img" id="img-pistachio">
+          <div class="top-pick" aria-label="Number one top pick"><strong>#1</strong><span>TOP PICK</span></div>
+        </article>
+
+        <div class="fav-stack">
+
+          <article class="fav-card fav-dark" id="card-danish" onmouseover="showFavorite('danish')" onmouseout="hideFavorite('danish')">
+            <div class="fav-text">
+              <span class="tag tag-yellow">Top-selling pastry</span>
+              <h3 class="fav-name">Mixed Berry Danish</h3>
+              <p class="fav-desc">Flaky pastry topped with sweet mixed berries.</p>
+              <span class="price-pill price-yellow">less than ₱140</span>
+              <button type="button" class="customize-btn" id="customize-danish" onclick="customizeItem('danish')">Customize ›</button>
+              <p class="fav-options" id="options-danish">Pick your size, sweetness, and add-ons when you order.</p>
+            </div>
+            <img src="assets/berries_fave.png" alt="Mixed Berry Danish" class="fav-img" id="img-danish">
+          </article>
+
+          <article class="fav-card fav-cream" id="card-latte" onmouseover="showFavorite('latte')" onmouseout="hideFavorite('latte')">
+            <img src="assets/latte_fave.png" alt="Iced Spanish Latte" class="fav-img" id="img-latte">
+            <div class="fav-text">
+              <span class="tag tag-yellow">Fresh this season</span>
+              <h3 class="fav-name">Iced Spanish Latte</h3>
+              <p class="fav-desc">Sweet espresso with condensed milk, refreshingly creamy.</p>
+              <span class="price-pill price-dark">less than ₱130</span>
+              <button type="button" class="customize-btn" id="customize-latte" onclick="customizeItem('latte')">Customize ›</button>
+              <p class="fav-options" id="options-latte">Pick your size, sweetness, and add-ons when you order.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+      <a href="menu.html" class="view-menu" id="viewMenu">View Menu &gt;&gt;</a>
+
+    </section>
+
+    <!-- ---------- ABOUT ---------- -->
+    <section class="home-about" id="about">
+
+      <img src="assets/about_bg.png" alt="" class="section-bg about-bg">
+
+      <div class="about-inner">
+
+        <figure class="branch-card">
+          <img src="assets/cafe_photo.png" alt="Inside the ourCAFE! Santa Maria branch" class="branch-img">
+          <figcaption class="branch-caption">ourCAFE! Santa Maria Branch</figcaption>
+        </figure>
+
+        <article class="about-text">
+          <p class="eyebrow">A little more about ourCAFE:</p>
+          <h2 class="section-title">Who’s behind the cup?</h2>
+          <p class="about-copy">At ourCafe, we believe great coffee is better when shared. We’re a cheerful neighborhood café serving delicious coffee, tasty treats, and good vibes for every kind of day. Whether you’re catching up with friends, taking a quick break, or simply craving your favorite cup, there’s always a place for you here. Come grab a cup, stay for the vibes, and make it ours.</p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- ---------- TESTIMONIALS ---------- -->
+    <section class="testimonials" id="feedbacks">
+
+      <img src="assets/reviews_bg.png" alt="" class="section-bg reviews-bg">
+
+      <div class="reviews-inner">
+
+        <header class="reviews-intro">
+          <p class="eyebrow light">Don’t just take ourWORD for it...</p>
+          <h2 class="section-title light">Good words from <span class="accent">ourPEOPLE!</span></h2>
+          <p class="reviews-copy">We love making great coffee, but hearing that our customers love it just as much makes it even better. Here are a few words from the people who’ve shared a cup, a laugh, and a little time with us.</p>
+        </header>
+
+        <div class="review-grid" id="reviewList">
+
+          <article class="review" id="review-klee" onmouseover="highlightReview('review-klee')" onmouseout="resetReview('review-klee')">
+            <header>
+              <img src="assets/Klee_profile.png" alt="Klee" class="avatar">
+              <div>
+                <strong>Klee</strong>
+                <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              </div>
+            </header>
+            <p>“The coffee is SO good, and the whole place just puts me in a better mood. Definitely coming back!”</p>
+          </article>
+
+          <article class="review" id="review-kazuha" onmouseover="highlightReview('review-kazuha')" onmouseout="resetReview('review-kazuha')">
+            <header>
+              <img src="assets/Kazuha_profile.png" alt="Kaedehara Kazuha" class="avatar">
+              <div>
+                <strong>Kaedehara Kazuha</strong>
+                <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              </div>
+            </header>
+            <p>“OurCafe is officially my go-to study spot. Great drinks, good food, and the vibes are immaculate.”</p>
+          </article>
+
+          <article class="review" id="review-layla" onmouseover="highlightReview('review-layla')" onmouseout="resetReview('review-layla')">
+            <header>
+              <img src="assets/Layla_profile.png" alt="Layla" class="avatar">
+              <div>
+                <strong>Layla</strong>
+                <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+              </div>
+            </header>
+            <p>“I came for one coffee and somehow stayed for three hours. No regrets.”</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ---------- CONTACT ---------- -->
+    <section class="contact" id="contact">
+
+      <header class="section-head center">
+        <p class="eyebrow">Got any questions?</p>
+        <h2 class="contact-title">COME SAY HI!</h2>
+      </header>
+
+      <div class="contact-grid">
+
+        <article class="contact-item">
+          <h3>Call us</h3>
+          <p><a href="tel:+639123456789">(+63) 912 345 6789</a></p>
+        </article>
+
+        <article class="contact-item">
+          <h3>Email Us</h3>
+          <p><a href="mailto:support.ourCAFE@gmail.com">support.ourCAFE@gmail.com</a></p>
+        </article>
+
+        <article class="contact-item">
+          <h3>Our Socials</h3>
+          <div class="social">
+            <a href="#" class="social-icon" aria-label="Facebook"><img src="assets/facebook_logo.png" alt="Facebook"></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><img src="assets/instagram_logo.png" alt="Instagram"></a>
+            <a href="#" class="social-icon" aria-label="TikTok"><img src="assets/tiktok_logo.png" alt="TikTok"></a>
+            <a href="#" class="social-icon" aria-label="X"><img src="assets/twitter_logo.png" alt="X (Twitter)"></a>
+          </div>
+        </article>
+
+      </div>
+
     </section>
 
   </main>
@@ -46,15 +221,15 @@
 
       <div class="footer-info">
         <a href="index.html" class="logo">
-          <img src="" alt="ourCAFE!" class="logo-img footer-logo-img">
+          <img src="assets/ourCafe_logo.png" alt="ourCAFE!" class="logo-img footer-logo-img">
         </a>
         <p class="tagline">Good Coffee. Good Vibes.</p>
 
         <div class="social">
-          <a href="#" class="social-icon" aria-label="Facebook"><img src="" alt="Facebook"></a>
-          <a href="#" class="social-icon" aria-label="Instagram"><img src="" alt="Instagram"></a>
-          <a href="#" class="social-icon" aria-label="TikTok"><img src="" alt="TikTok"></a>
-          <a href="#" class="social-icon" aria-label="X"><img src="" alt="X (Twitter)"></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><img src="assets/facebook_logo.png" alt="Facebook"></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><img src="assets/instagram_logo.png" alt="Instagram"></a>
+            <a href="#" class="social-icon" aria-label="TikTok"><img src="assets/tiktok_logo.png" alt="TikTok"></a>
+            <a href="#" class="social-icon" aria-label="X"><img src="assets/twitter_logo.png" alt="X (Twitter)"></a>
         </div>
       </div>
 

@@ -2,8 +2,10 @@
    ourCAFE! — script.js  
 
    EVENTS USED (set as attributes in index.html):
-     1. onclick   -> toggleMenu()   (hamburger button in the header)
-     2. onscroll  -> updateHeader() (<body onscroll="...">)
+     1. onclick      -> toggleMenu(), customizeItem()
+     2. onmouseover  -> showFavorite(), highlightReview()
+     3. onmouseout   -> hideFavorite(), resetReview()
+     4. onscroll     -> updateHeader()  (<body onscroll="...">)
    ========================================================= */
 
 /* ---------- Hamburger button contents ---------- */
@@ -44,4 +46,61 @@ function updateHeader() {
     header.style.minHeight = "";
     
   }
+}
+
+/* FUNCTION 3 — showFavorite(name)                [onmouseover] */
+function showFavorite(name) {
+  const card = document.getElementById("card-" + name);
+  const image = document.getElementById("img-" + name);
+  if (!card || !image) return;
+
+  card.style.transform = "translateY(-8px)";
+  card.style.boxShadow = "0 20px 36px rgba(58, 36, 28, 0.35)";
+  image.style.transform = "scale(1.06) rotate(-2deg)";
+}
+
+/* FUNCTION 4 — hideFavorite(name)                [onmouseout] */
+function hideFavorite(name) {
+  const card = document.getElementById("card-" + name);
+  const image = document.getElementById("img-" + name);
+  if (!card || !image) return;
+
+  card.style.transform = "translateY(0)";
+  card.style.boxShadow = "";
+  image.style.transform = "";
+}
+
+/* FUNCTION 5 — customizeItem(name)               [onclick] */
+function customizeItem(name) {
+  const options = document.getElementById("options-" + name);
+  const button = document.getElementById("customize-" + name);
+  if (!options || !button) return;
+
+  const isOpen = options.style.display === "block";
+
+  if (isOpen) {
+    options.style.display = "none";
+    button.innerHTML = "Customize ›";
+  } else {
+    options.style.display = "block";
+    button.innerHTML = "Hide options ⌄";
+  }
+}
+
+/* FUNCTION 6 — highlightReview(id)               [onmouseover] */
+function highlightReview(id) {
+  const review = document.getElementById(id);
+  if (!review) return;
+
+  review.style.backgroundColor = "#ffc83d";
+  review.style.transform = "translateX(-10px)";
+}
+
+/* FUNCTION 7 — resetReview(id)                   [onmouseout] */
+function resetReview(id) {
+  const review = document.getElementById(id);
+  if (!review) return;
+
+  review.style.backgroundColor = "";
+  review.style.transform = "";
 }
