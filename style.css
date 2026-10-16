@@ -2,7 +2,7 @@
    ourCAFE! — style.css
    1. Variables   2. Base   3. Shared   4. Header   5. Hero
    6. Favorites   7. About   8. Testimonials   9. Contact
-   10. Footer     11. Responsive
+   10. Footer     11. Newsletter Modal 12. Responsive
    ========================================================================== */
 
 
@@ -507,35 +507,6 @@ p {
   color: var(--brown);
 }
 
-/* Button (customize) */
-.customize-btn {
-  background: none;
-  border: 0;
-  padding: 0;
-  font: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  color: inherit;
-  cursor: pointer;
-}
-
-.customize-btn:hover {
-  text-decoration: underline;
-}
-
-.fav-options {
-  display: none;
-  font-size: 15px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.45);
-  color: inherit;
-}
-
-.fav-dark .fav-options {
-  background: rgba(255, 244, 214, 0.12);
-}
-
 /* badge (#1) */
 .top-pick {
   position: absolute;
@@ -883,8 +854,134 @@ p {
   color: var(--yellow);
 }
 
+/* ----- 11. NEWSLETTER MODAL ----- */
+.modal-overlay {
+  display: none;                
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  background: rgba(42, 24, 18, 0.65);
+}
 
-/* ----- 11. RESPONSIVE ----- */
+.modal {
+  width: min(100%, 578px);
+  min-height: 443px;      
+  max-height: 100%;
+  overflow-y: auto;
+  background: var(--cream);
+  color: var(--brown);
+  border-radius: 24px;
+  padding: var(--space-4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modal-input {
+  width: 100%;            
+  height: 36.18px;
+  padding: 0 var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.modal-logo {
+  width: 170px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: var(--brown);
+}
+
+.modal-img {
+  width: 100%;
+  height: 90px;
+  margin-top: var(--space-2);
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.modal-title {
+  margin-top: var(--space-2);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.2;
+}
+
+.modal-sub {
+  margin-top: var(--space-1);
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--warm-brown);
+}
+
+.modal-input {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: 18px var(--space-3);
+  font: inherit;
+  font-size: 18px;
+  color: var(--brown);
+  background: var(--cream);
+  border: 1.5px solid var(--brown);
+  border-radius: 10px;
+}
+
+.modal-input::placeholder {
+  font-style: italic;
+  color: var(--muted-brown);
+}
+
+.modal-msg {
+  min-height: 24px;
+  margin-top: var(--space-1);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 12px var(--space-2);
+  font: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1.5px solid var(--brown);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+}
+
+.modal-cancel {
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.modal-ok {
+  background: var(--brown);
+  color: var(--cream);
+}
+/* ----- 12. RESPONSIVE ----- */
 
 /* Desktop: keep nav visible */
 @media (min-width: 901px) {
@@ -1121,6 +1218,29 @@ p {
     grid-template-columns: 1fr;
     gap: var(--space-4);
     margin-top: var(--space-4);
+  }
+
+  /* Newsletter modal */
+  .modal {
+    padding: var(--space-3);
+  }
+
+  .modal-logo {
+    height: 36px;
+    font-size: 36px;
+  }
+
+  .modal-img {
+    height: 96px;
+  }
+
+  .modal-input {
+    margin-top: var(--space-3);
+    padding: 14px var(--space-2);
+  }
+
+  .modal-actions {
+    gap: var(--space-2);
   }
 
   /* Footer */
