@@ -1151,3 +1151,381 @@ p {
     max-width: none;
   }
 }
+
+/* ==========================================================================
+   ADDED CODE: MENU PAGE STYLES
+   Paste this at the very END of your style.css (below everything else).
+   ========================================================================== */
+
+/* ----- MENU HERO ----- */
+.menu-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 600px;
+  padding: var(--space-10) var(--page-pad);
+  background: var(--yellow);
+}
+
+.menu-hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 1.08;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.menu-hero-text {
+  margin-top: var(--space-3);
+  font-size: 22px;
+}
+
+.menu-mood-question {
+  margin-top: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.mood-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--space-2);
+}
+
+.mood-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 12px 18px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.mood-card:hover {
+  transform: translateY(-3px);
+}
+
+.mood-card strong {
+  display: block;
+  font-size: 18px;
+}
+
+.mood-card span {
+  font-size: 14px;
+  color: var(--muted-brown);
+}
+
+/* Hero picture side */
+.menu-hero-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-hero-img {
+  width: 80%;
+  height: auto;
+}
+
+.menu-hero-img {
+  width: 125%;
+  max-width: none;
+  height: auto;
+}
+
+
+/* ----- MENU BANNER ----- */
+.menu-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--page-pad);
+  background: var(--brown-deep);
+  color: var(--cream);
+}
+
+.menu-banner-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px);
+}
+
+.menu-banner-sub {
+  margin-top: var(--space-2);
+  font-size: 18px;
+}
+
+.combo-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--space-2);
+}
+
+.combo-pill {
+  background: var(--cream);
+  color: var(--brown);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.combo-pill:hover {
+  background: var(--yellow);
+  transform: translateY(-2px);
+} 
+
+.full-menu-btn {
+  background: var(--yellow);
+  color: var(--brown);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.full-menu-btn:hover {
+  background: var(--cream);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.full-menu-btn:active {
+  transform: translateY(0);
+}
+
+/* ----- FILTER TABS ----- */
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: var(--space-2) var(--page-pad);
+  background: var(--cream);
+}
+
+.tab-btn {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--brown);
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  background: var(--peach);
+}
+
+.tab-btn.active {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+
+/* ----- SPECIALTIES ----- */
+.specialties {
+  padding: var(--space-10) var(--page-pad);
+  background: var(--white);
+}
+
+.specialties-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.arrow-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.arrow-btn {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--brown);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.arrow-btn.arrow-dark {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.row-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-2);
+}
+
+.arrow-btn {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.arrow-btn:hover {
+  background: var(--yellow);
+  transform: scale(1.1);
+}
+
+.arrow-btn.arrow-dark:hover {
+  background: var(--warm-brown);
+  color: var(--cream);
+}
+
+.arrow-btn:active {
+  transform: scale(0.95);
+}
+
+.card-row {
+  display: flex;
+  scroll-behavior: smooth;
+  align-items: flex-end;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x none;
+  padding-top: 10px;
+  padding-bottom: var(--space-2);
+  padding-right: var(--page-pad);
+  margin-right: calc(var(--page-pad) * -1);
+  margin-bottom: var(--space-4);
+  scrollbar-color: var(--brown) var(--cream);
+}
+
+.menu-card {
+  flex: 0 0 300px;
+  height: 390px;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  transition: filter 0.25s ease;
+}
+
+.menu-card:hover .menu-card-img {
+  filter: drop-shadow(0 14px 18px rgba(58, 36, 28, 0.3));
+}
+
+/* ----- VISIT CTA ----- */
+.visit {
+  padding: 40px var(--page-pad);
+  background: var(--cream);
+}
+
+.visit-banner {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.visit-banner-img {
+  width: 100%;
+  height: auto;
+}
+
+.visit-btn-link {
+  position: absolute;
+  left: 5%;
+  top: 67%;
+  width: 13%;
+  height: 12%;
+  display: block;
+}
+
+.visit-btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.visit-btn-link:hover .visit-btn-img {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+}
+
+/* ----- MENU PAGE: MOBILE ----- */
+@media (max-width: 900px) {
+  .menu-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .menu-hero-text-side {
+    display: contents;
+  }
+
+  .menu-hero-art {
+    order: 1;
+    justify-content: center;
+  }
+
+  .menu-mood-question,
+  .mood-cards {
+    order: 2;
+  }
+
+  .menu-hero-circle {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .hero-img-wrap,
+  .menu-hero-img {
+    width: 100%;
+  }
+
+  .mood-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .specialties-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+    /* the mobile banner image has no button, so hide the overlay button */
+  .visit-btn-link {
+    display: none;
+  }
+
+  .visit-banner {
+    max-width: 420px;
+  }
+
+  .row-head {
+    justify-content: flex-start;
+  }
+}

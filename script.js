@@ -104,3 +104,32 @@ function resetReview(id) {
   review.style.backgroundColor = "";
   review.style.transform = "";
 }
+
+/* FUNCTION 8 — filterMenu(category)              [onclick] */
+function filterMenu(category) {
+  const cards = document.getElementsByClassName("menu-card");
+  const tabs = document.getElementsByClassName("tab-btn");
+
+  // Show only the cards that match the chosen category
+  for (let i = 0; i < cards.length; i++) {
+    if (category === "all" || cards[i].dataset.category === category) {
+      cards[i].style.display = "block";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+
+  // Move the "active" look to the clicked tab
+  for (let i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove("active");
+  }
+  const activeTab = document.getElementById("tab-" + category);
+  if (activeTab) activeTab.classList.add("active");
+}
+
+/* FUNCTION 9 — scrollCards(direction)            [onclick] */
+
+function scrollCards(direction, rowId) {
+  const row = document.getElementById(rowId);
+  row.scrollLeft = row.scrollLeft + direction * 330;
+}
