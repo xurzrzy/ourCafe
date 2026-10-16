@@ -981,6 +981,57 @@ p {
   background: var(--brown);
   color: var(--cream);
 }
+
+.modal-ok {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+/* Modal slides up when it appears */
+.modal-overlay {
+  animation: modalFade 0.3s ease-out;
+}
+
+.modal {
+  animation: modalSlideUp 0.4s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Modal slides down when closing (class added by JS) */
+.modal-overlay.closing {
+  animation: modalFadeOut 0.3s ease-in forwards;
+}
+
+.modal-overlay.closing .modal {
+  animation: modalSlideDown 0.3s ease-in forwards;
+}
+
+@keyframes modalFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes modalSlideDown {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(60px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal {
+    animation: none;
+  }
+}
+
 /* ----- 12. RESPONSIVE ----- */
 
 /* Desktop: keep nav visible */

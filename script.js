@@ -99,8 +99,16 @@ function closeNewsletter(event) {
 
   if (event && event.target !== modal) return;
 
-  modal.style.display = "none";
-  document.body.style.overflow = "";
+  // Ignore repeat clicks while the slide-down is already playing
+  if (modal.classList.contains("closing")) return;
+
+  // Slide down first, then hide once the animation (0.3s) is done
+  modal.classList.add("closing");
+  setTimeout(() => {
+    modal.style.display = "none";
+    modal.classList.remove("closing");
+    document.body.style.overflow = "";
+  }, 300);   // must match the 0.3s in the CSS
 }
 
 /* FUNCTION 7 — submitNewsletter()                [onclick] */
