@@ -1,8 +1,8 @@
 /* =========================================================
    ourCAFE! — script.js  
 
-   EVENTS USED (set as attributes in index.html):
-     1. onclick      -> toggleMenu(), customizeItem()
+   EVENTS USED:
+     1. onclick      -> toggleMenu(), closeNewsletter(), submitNewsletter()
      2. onmouseover  -> showFavorite(), highlightReview()
      3. onmouseout   -> hideFavorite(), resetReview()
      4. onscroll     -> updateHeader()  (<body onscroll="...">)
@@ -11,6 +11,9 @@
 /* ---------- Hamburger button contents ---------- */
 const MENU_OPEN_ICON = "<span></span><span></span><span></span>";
 const MENU_CLOSE_ICON = "✕";
+
+/* ---------- Newsletter popup: localStorage key ---------- */
+const NEWSLETTER_KEY = "ourcafeNewsletterSeen";
 
 /* FUNCTION 1 — toggleMenu()                      [onclick] */
 function toggleMenu() {
@@ -70,24 +73,61 @@ function hideFavorite(name) {
   image.style.transform = "";
 }
 
-/* FUNCTION 5 — customizeItem(name)               [onclick] */
-function customizeItem(name) {
-  const options = document.getElementById("options-" + name);
-  const button = document.getElementById("customize-" + name);
-  if (!options || !button) return;
 
-  const isOpen = options.style.display === "block";
+/* FUNCTION 5 — openNewsletter()  */
+function openNewsletter() {
+  const modal = document.getElementById("newsletterModal");
+  const input = document.getElementById("newsletterEmail");
+  if (!modal) return;
 
-  if (isOpen) {
-    options.style.display = "none";
-    button.innerHTML = "Customize ›";
-  } else {
-    options.style.display = "block";
-    button.innerHTML = "Hide options ⌄";
+  try {
+    if (localStorage.getItem(NEWSLETTER_KEY)) return;
+    localStorage.setItem(NEWSLETTER_KEY, "yes");
+  } catch (error) {
+    return;   
   }
+
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";   
+  if (input) input.focus();
 }
 
-/* FUNCTION 6 — highlightReview(id)               [onmouseover] */
+/* FUNCTION 6 — closeNewsletter(event)            [onclick] */
+function closeNewsletter(event) {
+  const modal = document.getElementById("newsletterModal");
+  if (!modal) return;
+
+  if (event && event.target !== modal) return;
+
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+/* FUNCTION 7 — submitNewsletter()                [onclick] */
+function submitNewsletter() {
+  const input = document.getElementById("newsletterEmail");
+  const message = document.getElementById("newsletterMsg");
+  if (!input || !message) return;
+
+  const email = input.value.trim();
+  const looksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!looksValid) {
+    message.innerHTML = "Please enter a valid email address.";
+    message.style.color = "#b3261e";
+    input.style.borderColor = "#b3261e";
+    return;
+  }
+
+  message.innerHTML = "You're in! Welcome to the ourPEOPLE Club.";
+  message.style.color = "#2e7d32";
+  input.style.borderColor = "#2e7d32";
+  setTimeout(closeNewsletter, 1500);
+}
+
+setTimeout(openNewsletter, 600);
+
+/* FUNCTION 8 — highlightReview(id)               [onmouseover] */
 function highlightReview(id) {
   const review = document.getElementById(id);
   if (!review) return;
@@ -96,7 +136,7 @@ function highlightReview(id) {
   review.style.transform = "translateX(-10px)";
 }
 
-/* FUNCTION 7 — resetReview(id)                   [onmouseout] */
+/* FUNCTION 9 — resetReview(id)                  [onmouseout] */
 function resetReview(id) {
   const review = document.getElementById(id);
   if (!review) return;
